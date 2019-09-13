@@ -6,7 +6,7 @@ namespace sypht_csharp_client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var auth = new Auth0Helper();
         }
     }
 }
