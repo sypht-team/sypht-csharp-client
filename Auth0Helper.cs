@@ -39,6 +39,7 @@ namespace Sypht
             "\"audience\":\"https://api.sypht.com\"," +
             "\"grant_type\":\"client_credentials\"" +	
             "}", Encoding.UTF8, "application/json");
+            
             var result = await this.httpClient.PostAsync("/oauth/token", content);
             var auth0Response = await result.Content.ReadAsStringAsync();
             return JObject.Parse(auth0Response)["access_token"].ToObject<string>();
