@@ -4,7 +4,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sypht_csharp_client
+namespace Sypht
 {
     class Auth0Helper
     {
@@ -38,7 +38,7 @@ namespace sypht_csharp_client
             "\"audience\":\"https://api.sypht.com\"," +
             "\"grant_type\":\"client_credentials\"" +	
             "}", Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync("/oauth/token", content);
+            var result = await this.httpClient.PostAsync("/oauth/token", content);
             return await result.Content.ReadAsStringAsync();
         }
     }
