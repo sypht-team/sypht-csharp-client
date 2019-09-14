@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Sypht
 {
@@ -39,7 +40,8 @@ namespace Sypht
             "\"grant_type\":\"client_credentials\"" +	
             "}", Encoding.UTF8, "application/json");
             var result = await this.httpClient.PostAsync("/oauth/token", content);
-            return await result.Content.ReadAsStringAsync();
+            var auth0Response = await result.Content.ReadAsStringAsync();
+            return JObject.Parse(auth0Response)["access_token"].ToObject<string>();
         }
     }
 }
