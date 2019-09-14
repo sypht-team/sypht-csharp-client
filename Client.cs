@@ -10,7 +10,7 @@ namespace Sypht
 {
     class Client
     {
-        private String SYPHT_URL = "https://api.sypht.com";
+        private string SYPHT_URL = "https://api.sypht.com";
         private Auth0Helper auth0Helper = null;
         private HttpClient httpClient = null;
         public Client()
@@ -23,7 +23,7 @@ namespace Sypht
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<String> upload(String fileName)
+        public async Task<string> upload(String fileName)
         {
             byte[] file_bytes = File.ReadAllBytes(fileName);
             
@@ -31,14 +31,21 @@ namespace Sypht
             
             MultipartFormDataContent form = new MultipartFormDataContent();
             form.Add(new StringContent("[\"sypht.invoice\"]", Encoding.UTF8), "fieldSets");
-            form.Add(new ByteArrayContent(file_bytes, 0, file_bytes.Length), "fileToUpload", "file.pdf");
+            form.Add(new ByteArrayContent(file_bytes, 0, file_bytes.Length), "fileToUpload", fileName);
             HttpResponseMessage response = await httpClient.PostAsync("/fileupload", form);
             response.EnsureSuccessStatusCode();
 
             var syphtResponse = await response.Content.ReadAsStringAsync();
             return JObject.Parse(syphtResponse)["fileId"].ToObject<string>();
         }
-        
-        
+
+        public async Task<string> result(String fileId)
+        {
+            HttpResponseMessage response = await httpClient.GetAsync("/result/final/" + fileId);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadAsStringAsync();
+        }
+
     }
 }
