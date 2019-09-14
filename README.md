@@ -1,5 +1,5 @@
 # Sypht C# Client
-This repository is a C#/.NET sample client implementation for working with the Sypht API at https://api.sypht.com.
+This repository is a C#/.NET sample implementation for working with the Sypht API at https://api.sypht.com.
 
 ## About Sypht
 [Sypht](https://sypht.com) is a SaaS [API]((https://docs.sypht.com/)) which extracts key fields from documents. For
