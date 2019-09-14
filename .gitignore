@@ -1,5 +1,7 @@
-.vscode
+
+# Default ignored files
+/.idea.sypht-csharp-client.dir/.idea/workspace.xml
 bin
 obj
-*.csproj
 .idea
+.vscode
