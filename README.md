@@ -20,6 +20,11 @@ Populate system environment variable with the credentials generated above:
 export SYPHT_API_KEY="$client_id:$client_secret"
 ```
 
+install the json.net dependency
+```Bash
+dotnet add package Newtonsoft.Json --version 12.0.2
+```
+
 then invoke the example file under /examples/simple.cs
 
 ```Bash
