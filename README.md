@@ -25,7 +25,7 @@ install the json.net dependency
 dotnet add package Newtonsoft.Json --version 12.0.2
 ```
 
-then invoke the example file under /examples/simple.cs
+then invoke the example file under examples/simple.cs
 
 ```Bash
 dotnet clean
