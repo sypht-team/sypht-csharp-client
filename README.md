@@ -7,7 +7,7 @@ example, you can upload an image or pdf of a bill or invoice and extract the amo
 and biller information.
 
 ### Getting started
-To get started you'll need API credentials, i.e. a `client_id` and `client_secret`, which can be obtained by registering
+To get started you'll need API credentials, i.e. a `<client_id>` and `<client_secret>`, which can be obtained by registering
 for an [account](https://www.sypht.com/signup/developer)
 
 ### Prerequisites
@@ -17,7 +17,7 @@ for an [account](https://www.sypht.com/signup/developer)
 Populate system environment variable with the credentials generated above:
 
 ```Bash
-export SYPHT_API_KEY="$client_id:$client_secret"
+export SYPHT_API_KEY="<client_id>:<client_secret>"
 ```
 
 install the json.net dependency
