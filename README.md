@@ -6,14 +6,14 @@ This repository is a C# / .NET sample implementation for working with the Sypht 
 example, you can upload an image or pdf of a bill or invoice and extract the amount due, due date, invoice number
 and biller information.
 
-### Getting started
+## Getting started
 To get started you'll need API credentials, i.e. a `<client_id>` and `<client_secret>`, which can be obtained by registering
 for an [account](https://www.sypht.com/signup/developer)
 
-### Prerequisites
+## Prerequisites
 * supports .NET Core 2.2
 
-### Usage
+## Usage
 Populate system environment variable with the credentials generated above:
 
 ```Bash
@@ -32,3 +32,8 @@ dotnet clean
 dotnet build
 dotnet run examples/simple.cs
 ```
+## License
+The software in this repository is available as open source under the terms of the [Apache License](https://github.com/sypht-team/sypht-csharp-client/blob/master/LICENSE).
+
+## Code of Conduct
+Everyone interacting in the project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sypht-team/sypht-csharp-client/blob/master/CODE_OF_CONDUCT.md).
