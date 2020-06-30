@@ -11,13 +11,18 @@ To get started you'll need API credentials, i.e. a `<client_id>` and `<client_se
 for an [account](https://www.sypht.com/signup/developer)
 
 ## Prerequisites
-* supports .NET Core 2.2
+* supports .NET Core 3.1
 
 ## Usage
 Populate system environment variable with the credentials generated above:
 
 ```Bash
 export SYPHT_API_KEY="<client_id>:<client_secret>"
+```
+
+If credentials were issued before 16th June 2020, please populate one more system environment variable:
+```Bash
+export SYPHT_AUTH_ENDPOINT="https://login.sypht.com/oauth/token"
 ```
 
 install the json.net dependency
@@ -32,6 +37,7 @@ dotnet clean
 dotnet build
 dotnet run examples/simple.cs
 ```
+
 ## License
 The software in this repository is available as open source under the terms of the [Apache License](https://github.com/sypht-team/sypht-csharp-client/blob/master/LICENSE).
 
