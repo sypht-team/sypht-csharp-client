@@ -20,9 +20,9 @@ Populate system environment variable with the credentials generated above:
 export SYPHT_API_KEY="<client_id>:<client_secret>"
 ```
 
-If credentials were issued before 16th June 2020, please populate one more system environment variable:
+If credentials were issued after 16th June 2020, please use one more system environment variable:
 ```Bash
-export SYPHT_AUTH_ENDPOINT="https://login.sypht.com/oauth/token"
+export SYPHT_AUTH_ENDPOINT="https://auth.sypht.com/oauth2/token"
 ```
 
 install the json.net dependency

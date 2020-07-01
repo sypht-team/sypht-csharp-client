@@ -10,7 +10,7 @@ namespace Sypht
 {
     class OAuthHelper
     {
-        private const string SYPHT_AUTH_ENDPOINT = "https://auth.sypht.com/oauth2/token";
+        private const string SYPHT_AUTH_ENDPOINT = "https://login.sypht.com/oauth/token";
 
         private String clientId = null;
         private String clientSecret = null;
