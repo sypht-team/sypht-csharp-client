@@ -11,11 +11,11 @@ namespace Sypht
     class Client
     {
         private string SYPHT_URL = "https://api.sypht.com";
-        private Auth0Helper auth0Helper = null;
+        private OAuthHelper oauthHelper = null;
         private HttpClient httpClient = null;
         public Client()
         {
-            this.auth0Helper = new Auth0Helper();
+            this.oauthHelper = new OAuthHelper();
             this.httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(SYPHT_URL);
             httpClient.DefaultRequestHeaders.Accept.Clear();
@@ -27,7 +27,7 @@ namespace Sypht
         {
             byte[] file_bytes = File.ReadAllBytes(fileName);
             
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await auth0Helper.login());
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await oauthHelper.login());
             
             MultipartFormDataContent form = new MultipartFormDataContent();
             form.Add(new StringContent("[\"sypht.invoice\"]", Encoding.UTF8), "fieldSets");
