@@ -8,7 +8,7 @@ namespace Sypht.Examples
         static async Task Main(string[] args)
         {
             var sypht = new Client();
-            Console.WriteLine(await sypht.result(await sypht.upload("./examples/receipt.pdf")));
+            Console.WriteLine(await sypht.result(await sypht.upload("./examples/receipt.pdf", FieldSet.Document, FieldSet.Invoice)));
         }
     }
 }

@@ -23,14 +23,20 @@ namespace Sypht
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<string> upload(String fileName)
+        public async Task<string> upload(String fileName, params string[] fieldSets)
         {
+            string formattedFieldSets = "[\"" + string.Join("\", \"", fieldSets) + "\"]";
+            if (fieldSets.Length == 0)
+            {
+                formattedFieldSets = "[\"sypht.document\"]";
+            }
+
             byte[] file_bytes = File.ReadAllBytes(fileName);
             
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await auth0Helper.login());
             
             MultipartFormDataContent form = new MultipartFormDataContent();
-            form.Add(new StringContent("[\"sypht.invoice\"]", Encoding.UTF8), "fieldSets");
+            form.Add(new StringContent(formattedFieldSets, Encoding.UTF8), "fieldSets");
             form.Add(new ByteArrayContent(file_bytes, 0, file_bytes.Length), "fileToUpload", fileName);
             HttpResponseMessage response = await httpClient.PostAsync("/fileupload", form);
             response.EnsureSuccessStatusCode();
